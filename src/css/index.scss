@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,700&family=Oswald:wght@400;600&family=Roboto:wght@400;900&display=swap');
+
+$color-main-blue: #2a5c82;
+$color-spot-gold: #be9c4b;
+$color-spot-darkblue: #1b2549;
+$color-spot-white:white;
+$font-basic : Roboto, sans-serif;
+$font-spot: 'Open Sans', sans-serif;
+$font-headling: Oswald, sans-serif ;
+
+@mixin button(){
+    margin:20px;padding:10px;text-transform: uppercase;font-size:1.5rem;border-radius:5px;cursor:pointer;border:2px solid $color-spot-darkblue;background:$color-spot-darkblue;color:white;text-align:center;font-weight:normal;box-shadow: inset 0 0 4px black,0 0 2px grey;letter-spacing:1px;
+        &:hover{ box-shadow: 0 0 5px 5px white;}
+}
+
+* {margin: 0; padding: 0; text-decoration: none; list-style: none;font-family: $font-basic;box-sizing: border-box;font-size:10px;}
+.noactive{animation-name: hidden;animation-duration: 1s;right:-64px;}
+.active{overflow: visible;animation-name: show;animation-duration: 1s;right:115px; }
+.display{display:block;}
+.displaynone{display: none!important;}
+@keyframes show{
+    from{right:-64px;}
+    to{right:115px;}
+}
+@keyframes hidden{
+    from{right:115px;}
+    to{right:-64px;}
+}
+@keyframes carouselShow{
+    from{opacity:0;}
+    to{oapcity:1;}
+}
+@keyframes carouselHide{
+    from{opacity:1;}
+    to{opacity:0;}
+}
+@keyframes showBox{
+    from{opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes hideBox {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+html {
+    scroll-behavior: smooth;
+}
+body {width: 100%;
+    h1,h2,h3,h4,h5,h6 {color:$color-spot-darkblue; font-family:$font-headling}
+}
+header { display:flex;justify-content:space-between;background: $color-spot-darkblue; background-image:linear-gradient( $color-main-blue, $color-spot-darkblue);width:100%;border-bottom: 1px solid $color-spot-gold;  
+    #logo{display:block}  
+    #logo img { height: 50px;width: 200px;margin: 10px;}
+    ul{display:inline-flex;flex-direction:row-reverse}
+    li {margin:15px 10px;
+        &:first-child a{color:$color-spot-gold;}}
+    li a {color:$color-spot-white;padding:5px;font-size:1.6rem;
+        &:hover{border-bottom: 2px solid $color-spot-gold;}}  
+    #menu {display: none;position:fixed;right:0;height:64px;width:64px;cursor:pointer;background: url(../assets/img/menu.png)no-repeat;}  
+    .smallScreen {display: flex;flex-direction: column; margin-top:73px; position:relative; border:1px solid $color-main-blue;border-radius:5px;
+        li {display:flex;background: $color-spot-darkblue;width:180px;margin:0 auto;line-height:30px;
+            &:first-child a{color:$color-spot-white;}
+            &:last-child a{color:$color-spot-gold;}
+            a {text-align: center;width:100%;padding: 10px;
+                &:focus{background: $color-spot-gold;}}}}
+    }
+
+#search { background: url('../assets/img/samolotnew.png')no-repeat #d3dfea;background-size:cover;background-position:center;
+    form { background: rgba(0,0,0,0.2);border:none;padding-top:20px;
+        fieldset {border:none;}
+        legend,label,h3,h5 {text-shadow: 0 0 2px $color-spot-darkblue;color: $color-spot-darkblue;color: $color-spot-gold;font-weight:bold;
+        }
+        .anotherdata{padding:0 80px;display:flex;flex-wrap:wrap;
+        &::after{display:block;content:'';clear:both;}}
+        input, select, select option{color:$color-spot-darkblue;}
+        #leavingfligth *, #arrival *{font-size:1.6rem; cursor:pointer; line-height: 2rem;}
+        legend {padding-left:80px;font-size: 3rem;font-family:$font-spot;letter-spacing:3px;font-weight: bold;}
+        .places{display:flex;width:48%;margin:10px 0;padding:20px 80px;
+        h3{flex-basis:10%;font-size:1.8rem;}
+        }       
+        #leavingfligth,  #arrival{width:100%;border: 1px solid  $color-main-blue; border-radius: 10px;font-size:2rem;padding: 10px;}
+        #leavingdatelabel, #arrivaldatelabel{flex-basis:15%;margin:20px 0;}
+        #leavingdate, #arrivaldate{margin:20px;margin-right:50%;width:30%;margin-left:10px;font-size:1.6rem;border: 1px solid  $color-main-blue;;border-radius:5px;padding:5px 10px;color:$color-spot-darkblue;}
+        #leavingdate:focus, #arrivaldate:focus, #leavingfligth:focus, #arrival:focus{ border:1px solid $color-spot-gold;}
+        label{font-size:1.6rem;margin-left:10px;}
+        #passengers{min-width:250px; 
+            h5{font-size:1.4rem;font-family: $font-headling;letter-spacing:2px;}
+        #people-chosen{cursor:pointer;width:100%;font-size:1.6rem;line-height: 3.2rem;background:white;border:1px solid $color-main-blue;border-radius:5px;color:$color-spot-darkblue;margin-top:10px;padding: 0 20px;}
+        }
+        #searchbutton {cursor:pointer;margin:20px;float:right;width:250px;height:50px; text-transform: uppercase;border-radius:10px;font-size:1.8rem; background: radial-gradient( $color-main-blue,$color-spot-darkblue);color:$color-spot-white;border:$color-spot-white solid 2px;font-weight: normal;
+        &:hover {background: radial-gradient( $color-spot-gold,#986c04);}
+        }
+        #fillReady {cursor:pointer;font-size:1.4rem;background:$color-spot-white;border:1px solid $color-main-blue;border-radius:5px;width:200px;text-align:center;line-height: 2rem;color:$color-spot-darkblue;text-transform: uppercase;margin-top:10px;float:right;height:30px;margin-left:100px;margin-top:30px;box-shadow: 0 0 8px white;
+        &:hover{box-shadow: 0 0 8px black;background: $color-spot-darkblue; color:$color-spot-white}}
+        #output{margin-bottom:20px;flex-basis:100%;margin-top:20px; box-shadow:0 0 10px 1px #302d2d;
+            h4,h3 {background: $color-spot-gold;font-size: 1.4rem;font-family: $font-spot;font-weight: bold;letter-spacing: 1px;padding: 5px 10px;border:1px solid $color-spot-gold;border-radius:5px;
+            }
+            h3{color:darkred;text-transform: uppercase;text-align: center; text-shadow:none;font-size:1.6rem;}
+            }
+    }
+}
+#passengers-form{margin-top:215px;width:250px;position:absolute;z-index:2;background:white;border:$color-spot-darkblue solid 1px;border-radius:5px;padding:10px;
+    .people{
+        h4{font-size:1.2rem;letter-spacing: normal;margin-bottom:10px;font-weight:normal;}
+        .person {clear:both;color:$color-spot-white;margin-bottom:10px;display:flex;
+            .title,.counter {width:50%;}
+            .title {
+                h4{color:$color-spot-white;font-size:1.4rem;background:$color-main-blue;border:1px solid $color-main-blue;border-radius:5px;width:80%;text-align:center;line-height: 2rem;;}
+                p{font-size:0.9rem;color:$color-spot-darkblue;margin:10px 0;
+                }
+            }
+            .counter {
+                input{width:30px;text-align:center;margin:0 10px;font-size:1.6rem;line-height:2.4rem;font-weight: bold;}
+                .decrease, .increase{cursor:pointer;background:$color-main-blue;color:$color-main-blue;border:1px solid $color-main-blue;height:20px;width:20px;border-radius:20px;font-weight:bold;color:$color-spot-white;font-size:2rem;line-height:1.8rem;text-align: center;margin:0 auto;}
+                
+            }
+        }
+    }
+    .ready{cursor:pointer;font-size:1.4rem;background:$color-main-blue;border:1px solid $color-main-blue;border-radius:5px;width:80%;text-align:center;line-height: 2rem;color:white;text-transform: uppercase;margin-top:10px;float:right;}
+}
+#login {
+    .popuptext {width:80vw;background: rgba(0,0,0,0.8);margin-left:10vw;margin-top:10vh;position:absolute;border-radius:20px;padding:40px;box-sizing: border-box;visibility: hidden;}
+    #alertPopup{display: flex;flex-direction: column;align-items: center;}
+    .show {
+    position: absolute;
+    visibility: visible;
+    animation: fadeIn 0.5s;
+    z-index: 1;
+    fieldset{border: none;}
+    .loginbox{display: flex;flex-direction:column;align-items: center;}
+    h2, label{color:$color-spot-white;font-size:1.8rem;letter-spacing:1px;text-align: center;padding: 10px 0;}
+    h2{font-size:2.2rem;text-decoration: underline;}
+    input{color:grey; font-size:1.6rem;height: 20px;margin-top:10px;padding:15px;}
+    .buttons{display: flex;justify-content: center;}
+    #loginBtn, #closebutton, #closeBox {@include button;height:40px;}
+    .close{text-align: right;}
+    #close, #closeAlert{font-size:3rem;color:$color-spot-white;cursor:pointer}
+    #closeBox{width:100px;}
+    .alerth2 {text-decoration: none;}
+    p{color:red;font-size:1.6rem;text-align:center;}
+    }
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+    }  
+    @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+    }
+    }
+#results {
+    #userInfo {
+        padding:20px 10px;
+        h2, span {text-align: center;margin-right:20px;font-size:1.6rem;letter-spacing: 1px;margin-bottom:20px}
+        #user{font-size:2rem;text-align: center;}
+        #weather, #temp {text-transform: uppercase;
+            img{width:80px;height: 80px}}
+    }
+    h3, #user {font-size:2rem;text-align: center;text-decoration: underline;letter-spacing: 1px;}
+    display:none; width:100%;padding: 0 40px;background: linear-gradient(0.25turn,#d3dfea, #f8f3f5, #d3dfea);
+    .leaving-result, .arrival-result,.summary {margin:0 auto;width:1200px;margin-bottom:40px;padding:20px;}
+    .summary{
+        display:flex;flex-wrap:wrap;margin:0 auto;
+        .regiondata, .datedata{display:flex;}
+        .arrows {width:20px;height: 16px;margin-right:20px;margin-top:10px;}
+        h2, span {font-size:2.6rem;margin-right:20px;color:#1b2549;font-family: $font-headling;}
+        .regiondata{order:-1;}
+        .datedata{order:1;flex-basis:100%;}
+        #edit-search {cursor:pointer;margin-top:10px;padding:5px 20px;font-size:1.2rem;color: $color-spot-white;background-color:$color-spot-darkblue;border: 1px solid $color-spot-darkblue;border-radius:5px;}
+        h4 {font-size:1.4rem;     
+        }              
+    }
+    .leaving-result-title, .arrival-result-title{display:flex;width:100%;border-bottom: 1px solid $color-main-blue;margin-bottom:20px;}
+    .leaving-result img, .arrival-result img {margin-right:20px;}
+    #leaving-title, #arrival-title {font-size:2.4rem;}
+    .carousel,.arrivalcarousel, .flight-info, .arrivalflight-info{display:flex;align-items:center;justify-content:center;margin-top:40px;clear:both; border:1px solid $color-spot-white;width:100%;box-shadow: 3px 3px grey 10px;}
+    //carousel
+    .carousel, .arrivalcarousel {position:relative;
+        .carousel-date, .arrival-carousel-date {cursor:pointer;padding:20px 0;          
+            h4,h5,h6 {text-align: center;}
+            h4{font-size: 2.4rem;}
+            h5{font-size:1.6rem;}
+            h6{font-size:1.2rem;color:$color-spot-gold}
+        }        
+        .carousel-nav{cursor:pointer;position:absolute;color:$color-spot-white;font-size:4rem;top:25%;text-shadow: -2px 0 4px grey;
+        &:hover{text-shadow: -2px 0 6px $color-spot-darkblue}}
+        .prev{left:1vw;}
+        .next{right:1vw;text-shadow: 2px 0 4px grey;
+        &:hover{text-shadow: 2px 0 6px $color-spot-darkblue}}
+        .slides{flex-basis:30%;display:none;opacity:0;margin:0;animation:carouselHide;animation-duration: 0.3s;}
+        .activeslides{display:block;opacity:1;animation:carouselShow;animation-duration: 0.5s;}
+        // .chosenDate{border: 1px solid white;box-shadow: 0px 0px 6px 2px grey;}
+    }
+    .flight-info, .arrivalflight-info{flex-wrap:wrap;
+        h6 {clear:both;margin:0 auto;text-align: center;font-size:1.2rem;
+            span{font-size:1.6rem}
+        }
+        h5{clear:both;text-align: center;font-size:1.4rem;padding:20px 0;}
+        h5 span{font-size:1.4rem}
+        h3{font-size:2.2rem;text-align: center;}
+        h2{font-size:3rem;text-align: right;padding-right:30px;text-decoration: underline;}
+        .company-info, .leave-info, .time-info, .arrival-leaving-info, .flight-number, .flight-type, .flight-price {margin-left:1%;}
+        .company-info {width:15%;
+        img{display:block;clear: both;width:70px; height:auto;margin:0 auto;}        
+        }
+        .leave-info, .arrival-leaving-info {width:5%;
+            h4 {text-align:center; font-size: 2rem;}}
+        .time-leave-info, .time-arrival-info{width:20%;margin-top:20px;
+            .timeflight-img{width:90%;height:17px;margin:30px 5% 0 5%;border-bottom:1px solid $color-main-blue;
+            img{display: block;margin:0 auto;}
+            }            
+        }
+        .flight-number {width:10%;}
+        .flight-type{width:15%;}
+        .flight-price {margin-left:0;width:24%;border-left:1px solid $color-spot-white;}
+        .flight-price h5{text-align: right;padding:0;padding-right:30px;}
+        .leavingChoiseBtn,.arrivalChoiseBtn{float:right;@include button;}
+        .leavingchoosenBtn,.arrivalchoosenBtn {background:$color-spot-gold;}
+    }
+    .leaveFlightBaggagesBox, .arrivalFlightBaggagesBox{display:flex;width:98%;margin-bottom:30px; justify-content: center; padding: 30px;
+    .withoutBaggage, .smallBaggage, .bigBaggage {flex-grow:1; display:flex;flex-direction:column; padding:20px; margin:0 20px;border: 1px solid $color-spot-white;box-shadow: 1px 1px 3px grey;
+    &:hover{box-shadow: 0 0 10px 10px #808080bd;}
+    .baggageInfo{flex-grow: 1; h2 {text-align: center;border-bottom: 1px dotted $color-spot-white;padding-bottom: 10px; h4{font-size:1.2rem;}} 
+    h4 {font-size:1.6 rem; text-align: center;} 
+    ul {margin-top:40px;
+        li { h5, p {text-align: justify;font-size:1.6rem;padding:0;} p{font-size:1.2rem;margin-bottom:15px;} span{margin-right:10px;}}} }
+    .baggageButton {display:flex;flex-direction:column; align-items:center;justify-content:center;margin-top:40px;
+        input{@include button;width:60%;}
+        h4{font-size: 2.6rem; text-align: center;text-decoration: underline;}
+        h6{font-size: 1.2rem;}}
+    }}
+    .hideBaggageBox{display:none;}
+    .showBaggageBox{display:block;}
+    .bookingFlightButton {input{@include button; margin: 0 20px;}}
+    .summaryLeaveFlightBox, .summaryArrivalFlightBox {width:100%;display:flex;justify-content: center;border-top:1px dotted $color-spot-white;padding:20px;
+    h3, span{font-size:1.6rem;}}
+}
+#summary{display:none;
+    .flightsSummaryBox {
+        display:flex;padding:20px 80px;
+    } 
+    .bookingFlightButton  {
+        input{@include button; margin: 0 20px;}
+        }
+    #flightBooking, #chooseLeavingFlight, #chooseArrivalFlight{
+        @include button; margin:10px 0;
+    }
+    h2{font-size:2.4rem;color:$color-spot-gold;text-decoration: underline;}
+    .flightSummaryInfo{flex-grow:1;}
+    .leavingBook, .arrivalBook{background:#be9c4b!important;}
+    #bookingLeaveFlightButtons, #bookingArrivalFlightButtons{display:none;align-items:flex-end;flex-direction: column-reverse;align-items: stretch;justify-content: flex-start;
+    input{margin:10px 0 ;}}
+    .summaryLeaveFlightBox, .summaryArrivalFlightBox {width:100%;display:flex;justify-content: center;border-top:1px dotted $color-spot-white;padding:20px;
+        h3, span{font-size:1.6rem;}}
+    #leaveInfo, #arrivalLeavingInfo, #leavingDateInfo,  #companyNameInfo, #peopleQuantityInfo, #baggageTypeInfo, #priceFlightInfo,#arrivalInfo,#arrivalInfoTo,#arrivalDateInfo,#arrivalCompanyNameInfo,#arrivalPeopleQuantityInfo,#arrivalBaggageTypeInfo,#arrivalPriceFlightInfo, #chosenSeat,#otherPrice,#leavingChosenSeat,#arrivalChosenSeat{display:flex;
+    h3, span {flex-basis:50%;}}
+    #finalBookinButton {display:flex;flex-direction:column;justify-content: center;align-items: center;}
+    #priceFlightInfo, #arrivalPriceFlightInfo{
+        input, select{font-size:1.6rem; border:none;}
+        input{width:100px;}
+        .currencySelect,option {font-size:1.8rem;margin: 10px 0;}
+    }
+    #airplane {width:100%;}
+    .tooltip {width:60px;height:20px; position: absolute;display: block;z-index:1;background-color: black; color:white;padding:5px 10px;}
+    #summaryuserInfo {
+        padding:20px 10px;
+        h2, span,h3 {text-align: center;margin-right:20px;font-size:1.6rem;letter-spacing: 1px;margin-bottom:20px; text-decoration: none;color:$color-spot-darkblue;}
+        #user{font-size:2rem;text-align: center;}
+        #arrivalweather, #arrivaltemp {text-transform: uppercase;
+            img{width:80px;height: 80px}}
+    }
+    
+}
+
+#promotions{
+    img{width:100%;height: auto;}
+}
+footer{
+    background: $color-spot-darkblue; background-image:linear-gradient( $color-main-blue, $color-spot-darkblue);width:100%;padding-bottom: 40px;padding-top:20px;
+    #footer{width:1200px;margin:0 auto; }   
+    ul {display:flex;flex-wrap:wrap;} 
+    li {
+        display:block;color:$color-spot-white;padding:5px;font-size:1.6rem;width:27%;margin:10px 3% 0 3%;text-align:center;
+        a{font-size:1.6rem;color:white;display:block;}
+    }  
+}
+@media screen and (max-width: 1200px){
+    #search{background-size: cover;background-position: 70%;}
+    #results{ 
+        .leaving-result, .arrival-result,.summary {width:100%;} 
+    }   
+    footer {
+        #footer{width:100%;}
+    } 
+    #summary{.flightsSummaryBox{flex-direction: column;}}
+}
+@media screen and (max-width: 1000px){
+    #search{
+        form{
+            #leavingdatelabel,#arrivaldatelabel{flex-basis:25%;}
+            #arrivaldate,  #leavingdate {flex-basis:50%;}
+         #leavingdate,#arrivaldate {margin-right:20%;}
+        }
+    }    
+    #results{
+        .flight-info, .arrivalflight-info {
+            .company-info, .flight-type{width:20%;}
+            .time-leave-info {width:20%;margin:0 2%;}
+            .leave-info, .arrival-leaving-info { width:10%;}            
+            .flight-price {width:100%;border-left:none;margin-top:0;
+                h5,h2{text-align: center;padding-right:0;}
+            }
+        }
+    }
+    #summary .flightsSummaryBox{padding:20px;}
+      
+}
+@media screen and (max-width: 768px){
+    .desktop{display:none;}
+    header #menu {display: block;} 
+    #search {
+       background-size: contain;
+       background-position: top; 
+       padding-top:26%;     
+        form{width:100%;
+        .places{width:100%;padding:20px;} 
+        .anotherdata{padding:20px;}       
+        #leavingdate,#arrivaldate {margin-right:20%;}
+        }
+    }
+    #results{padding:40px 10px;
+        .carousel{
+            .carousel-date, .arrival-carousel-date {width:33%;}
+            }
+        .flight-info, .arrivalflight-info{
+            .company-info, .leave-info, .time-info, .time-leave-info, .arrival-leaving-info, .flight-number, .flight-type, .flight-price {width:50%;margin-left:0;margin-right:0;}
+            .flight-price{width:100%;}
+            .flight-number{clear:both;}            
+        } 
+        .arrivalFlightBaggagesBox,.leaveFlightBaggagesBox{flex-direction: column;}
+        }
+       .summaryLeaveFlightBox, .summaryArrivalFlightBox {flex-direction: column;}
+    footer{
+            li{width:50%;margin: 10px 0;}
+        }
+        
+    #summary .flightsSummaryBox{padding:20px 10px;}
+}
+
+@media screen and (max-width: 400px){
+    #login #myPopup {width:100vw;padding:0;margin:0;}
+    #search {
+        form {
+            #searchbutton {width:100%;margin:0 auto;margin-top:20px;}
+            #arrivaldate, #leavingdate {flex-basis:90%;margin-right: 0;}
+            #leavingdatelabel, #arrivaldatelabel{flex-basis:100%;}
+            #passengers-form{margin-top:320px;}
+            .anotherdata{padding:20px 5px;}
+            .places{width:80%;}
+        }}
+    #results .arrivalcarousel, #results .carousel {flex-direction: column;}
+    #results{
+            .carousel{
+                .carousel-date, .arrival-carousel-date {width:90%;}
+                } 
+            .flight-info, .arrivalflight-info{
+                .company-info, .leave-info, .time-info, .time-leave-info, .arrival-leaving-info, .flight-number, .flight-type, .flight-price,.time-arrival-info {width:90%;margin:0 5%;padding:20px 0;border-bottom: 1px dashed $color-spot-white;margin-top:0;}  
+                .time-leave-info{
+                    .timeflight-img{margin-top:0;}
+                }
+                
+            } 
+            .time-arrival-info{margin-top:0;}     
+            #userInfo, .summary,.leaving-result, .arrival-result {padding:0;}
+            .arrivalFlightBaggagesBox,.leaveFlightBaggagesBox{padding:0;}
+        } 
+    footer{
+            li{width:100%;}
+        }
+    
+    }
+
+
+
