@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air traveler</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" id="logo">
+            <!-- <img src="assets/img/logo3.png"> -->
+        </a>
+        <nav class="desktop">
+            <ul>
+                <li><a href="#">Rejestracja</a></li>
+                <li><a href="#">Logowanie</a></li>
+                <li><a href="#">Moje rezerwacje</a></li>
+                <li><a href="#">Zaplanuj</a></li>
+            </ul>
+        </nav>
+        <div id="menu">
+            <nav>
+                <ul id="menuxs" class="displaynone smallScreen">
+                    <li><a href="#">Zaplanuj</a></li>
+                    <li><a href="#">Moje rezerwacje</a></li>
+                    <li><a href="#">Logowanie</a></li>
+                    <li><a href="#">Rejestracja</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="login">
+        <div class="popuptext loginBox" id="myPopup">
+            <div class="close"><span id="close"> &#215;</span></div>
+            <h2>Zaloguj się</h2>
+            <fieldset>
+                <div class="loginbox">
+                    <label for="nickname"> Nazwa użytkownika: </label>
+                    <input type="text" id="nickname"><br><br>
+                </div>
+                <div class="loginbox">
+                    <label for="password">Hasło:</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="buttons">
+                    <input type="submit" value="Zaloguj" id="loginBtn">
+                    <input type="submit" value="Anuluj" id="closebutton">
+                </div>
+            </fieldset>
+            <p id="alert"></p>
+
+        </div>
+        <div class="popuptext loginBox" id="alertPopup">
+            <!-- <div class="close"><span id="closeAlert"> &#215;</span></div> -->
+            <h2 class="alerth2" id="alerth2">Wypełnij pola popranie.<br><br>
+                Kliknij przycisk "GOTOWE", a następnie "WYSZUKAJ"</h2>
+            <input type="submit" value="Zamknij" id="closeBox">
+        </div>
+
+        </div>
+
+
+    </section>
+    <section id="search">
+        <form>
+            <fieldset>
+                <legend>Loty</legend>
+                <div class="places">
+                    <h3>Z:</h3>
+                    <select type="text" value="" id="leavingfligth">
+                        <option name="citiesfrom" id="citiesfrom"></option>
+                        <option id="Kraków" value="KRK-sky">Kraków</option>
+                        <option id="Londyn" value="LOND-sky">Londyn</option>
+                        <option id="Nowy Jork" value="NYCA-sky">Nowy Jork</option>
+
+
+
+                    </select>
+                </div>
+                <div class="places">
+                    <h3>Do:</h3>
+                    <select type="text" value="" id="arrival">
+
+                        <option name="citiesfrom" id="citiesfrom"></option>
+                        <!-- <option value="KRK-sky">Kraków</option> -->
+                        <option value="LOND-sky">Londyn</option>
+                        <option value="NYCA-sky">Nowy Jork</option>
+                        <option value="WAW-sky">Warszawa</option>
+                    </select>
+                </div>
+                <div class="anotherdata">
+                    <label for="leavingdate" id="leavingdatelabel">Data wylotu</label>
+                    <input type="date" id="leavingdate" name="leavingdate">
+                    <label for="arrivaldate" id="arrivaldatelabel">Data przylotu</label>
+                    <input type="date" id="arrivaldate" name="arrivaldate">
+                    <div id="passengers">
+                        <h5>Pasażerowie</h5>
+                        <input type="button" id="people-chosen" value="1 Dorosły">
+                    </div>
+                    <div id="passengers-form" class="displaynone">
+                        <div class="people">
+                            <h4>Wybierz pasażerów według wieku</h4>
+                            <div class="person">
+                                <div class="title">
+                                    <h4>Dorośli</h4>
+                                    <p>16+ lat w chwili rozpoczęcia podróży</p>
+                                </div>
+                                <div class="counter">
+                                    <input type="button" class="decrease" id="adults-decrease" value="&minus;">
+                                    <input value="1" id="adults-quantity" class="input">
+                                    <input type="button" class="increase" id="adults-increase" value="+">
+                                </div>
+                            </div>
+                            <div class="person">
+                                <div class="title">
+                                    <h4>Dzieci</h4>
+                                    <p>2 - 15 lat w chwili rozpoczęcia podróży</p>
+                                </div>
+                                <div class="counter">
+                                    <input type="button" class="decrease" id="children-decrease" value="&minus;">
+                                    <input value="0" id="children-quantity" class="input">
+                                    <input type="button" class="increase" id="children-increase" value="+">
+                                </div>
+                            </div>
+                            <div class="person">
+                                <div class="title">
+                                    <h4>Niemowlę</h4>
+                                    <p>Poniżej 2 lat w chwili rozpoczęcia podróży</p>
+                                </div>
+                                <div class="counter">
+                                    <input type="button" class="decrease" id="baby-decrease" value="&minus;">
+                                    <input value="0" id="baby-quantity" class="input">
+                                    <input type="button" class="increase" id="baby-increase" value="+">
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <input type="button" class="ready" id="ready" value="gotowe">
+                    </div>
+
+                    <input id="fillReady" type="button" value="Gotowe">
+                    <div id="output">
+
+                    </div>
+                    <input type="button" id="searchbutton" value="Uzupełnij pola">
+                </div>
+            </fieldset>
+
+
+        </form>
+    </section>
+
+
+    <section id="result">
+        <div id="results">
+            <div id="userInfo">
+                <h2 id="dayData">
+                    <span id="user"></span>
+                    dziś
+                    <span id="currentDate">24.04.2021</span>godzina <span id="currentHour">8.45</span>
+
+                </h2>
+                <h2>W wybranym przez Ciebie miejscu wylotu jest obecnie
+                    <span id="weather"></span>, temperatura wynosi:
+                    <span id="temp"></span>
+                </h2>
+
+                <h3>Twoje loty do wyboru:</h3>
+            </div>
+            <div class="summary">
+                <div class="regiondata">
+                    <h2 id="regiondata"> </h2>
+                </div>
+                <div class="datedata" id="datedata">
+                </div>
+                <input type="button" id="edit-search" value="Edytuj wyszukiwanie">
+
+            </div>
+            <div class="leaving-result">
+                <div class="leaving-result-title">
+                    <img src="assets/img/leave.png">
+
+                    <h2 id="leaving-title"> </h2>
+                </div>
+                <div class="carousel">
+
+                    <div class="carousel-date slides activeslides chosenDate" id="active">
+                    </div>
+
+
+                </div>
+                <div id="flights">
+                </div>
+            </div>
+            <div class="arrival-result">
+                <div class="arrival-result-title">
+                    <img src="assets/img/arriive.png">
+                    <h2 id="arrival-title"> Londyn -> Gdańsk</h2>
+                </div>
+                <div class="arrivalcarousel">
+
+
+
+                    <div class="arrival-carousel-date slides activeslides " id="arrivalActive">
+
+                    </div>
+
+
+                </div>
+                <div id="arrivalflight">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="summary">
+        <div id="summaryuserInfo">
+            <h2>W wybranym przez Ciebie miejscu docelowym jest obecnie
+                <span id="arrivalweather"></span>, temperatura wynosi:
+                <span id="arrivalTemp"></span>
+            </h2>
+
+            <h3>Twoje wybrane loty:</h3>
+        </div>
+        <div class=flightsSummaryBox>
+            <div class="summaryLeaveFlightBox">
+                <div class="flightSummaryInfo" id="summaryLeaveInfo">
+                    <input type="button" id="chooseLeavingFlight" value="Wybierz lot">
+                </div>
+                <div id="bookingLeaveFlightButtons" class="bookingFlightButton">
+                    <input type="button" value="Wybierz miejsce" id="leaveFlightBooking" class="bookingButton">
+                    <input type="button" value="Zmień" id="changeBaggage">
+                </div>
+            </div>
+            <div class="summaryArrivalFlightBox">
+                <div class="flightSummaryInfo" id="summaryArrivalInfo">
+                    <input type="button" id="chooseArrivalFlight" value="Wybierz lot powrotny">
+                </div>
+                <div id="bookingArrivalFlightButtons" class="bookingFlightButton">
+                    <input type="button" value="Wybierz miejsce" id="arrivalFlightBooking" class="bookingButton">
+                    <input type="button" value="Zmień" id="arrivalChangeBaggage">
+                </div>
+            </div>
+        </div>
+
+        <div id="finalBookinButton">
+            <input type="button" value="Rezerwuj" id="flightBooking" class="bookingButton">
+            <div id="alertText"></div>
+        </div>
+        <div id="airplaneDiv">
+            <object id="airplane" type="image/svg+xml" data="">
+
+            </object>
+        </div>
+    </section>
+    <section id="promotions">
+        <img src="assets/img/baner.jpg">
+    </section>
+    <footer>
+        <nav id="footer">
+            <ul>
+                <li><a href="#">Zaplanuj</a></li>
+                <li><a href="#">Promocje</a></li>
+                <li><a href="#">Zwiedzanie</a></li>
+                <li><a href="#">Wynajem samochodu</a></li>
+                <li><a href="#">Rezerwuj nocleg</a></li>
+                <li><a href="#">Atrakcje</a></li>
+                <li><a href="#">Logowanie</a></li>
+                <li><a href="3">Rejestracja</a></li>
+                <li><a href="3">Kontakt</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- <script src="bundle.js"></script> -->
+</body>
+
+</html>
